@@ -7,12 +7,25 @@ Created on Sun Jan 24 21:34:37 2021
 
 
 import streamlit as st
-import pickle
+import joblib
+import pandas
+
+st.set_option('deprecation.showfileUploaderEncoding', False)
+
+st.set_option('deprecation.showPyplotGlobalUse', False)
+
 
 def main():
-    st.text_input(value ='asd')
     
-    
+    countvect = joblib.load(open('count_vect.pkl', 'rb'))
+    model = joblib.load(open('naive_bayes_model.pkl', 'rb'))
+    st.title('Spam Classifier')
+    text = st.text_area('Enter verification text')
+    if st.button('Predict'):
+        text = countvect.transform(text)
+        result = model.predict(text)
+        result= str(result)
+        st.write('The text is : ', result)
     
     
     
