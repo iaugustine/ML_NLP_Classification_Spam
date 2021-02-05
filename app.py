@@ -24,7 +24,7 @@ def main():
         text = [text]
         text = countvect.transform(text)
         result = model.predict(text)
-        #st.write(result)
+        
         if result == [0]:
             st.write('This message is NOT SPAM')
         else:
