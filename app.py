@@ -18,7 +18,8 @@ def main():
     countvect  = pickle.load(open('count_vect.pkl', 'rb'))
     model = pickle.load(open('naive_bayes_model.pkl', 'rb'))
     st.title('Spam Classifier')
-    text = st.text_area('Enter verification text')
+    text = st.text_area('Enter text for evaluation:')
+    
     if st.button('Predict'):
         
         text = [text]
@@ -29,7 +30,10 @@ def main():
             st.write('This message is NOT SPAM')
         else:
             st.write('This message is SPAM!!')
-    
-    
+    st.write('''Created by Immanuel Ryan Augustine
+             \n Links: 
+             \t [Github](https://github.com/iaugustine/SpamClassifier) 
+             \t [LinkedIn](https://www.linkedin.com/in/immanuelryan/)''')
+    #st.footer
 if __name__ == '__main__':
     main()
