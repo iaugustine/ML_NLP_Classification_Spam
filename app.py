@@ -28,7 +28,7 @@ def main():
         if result == [0]:
             st.write('This message is NOT SPAM')
         else:
-            st.write('This message is SPAM!!!')
+            st.write('This message is SPAM!!')
     
     
 if __name__ == '__main__':
